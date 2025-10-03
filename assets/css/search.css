@@ -1,0 +1,416 @@
+/* Student Rotation Search Styles */
+
+.sr-search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sr-search-header h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Filters */
+.sr-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.sr-filter-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.sr-filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.sr-filter-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sr-btn-secondary {
+    padding: 10px 20px;
+    background: #666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.sr-btn-secondary:hover {
+    background: #444;
+}
+
+/* Map */
+.sr-map {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #e5e5e5;
+}
+
+/* Results */
+.sr-results-count {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sr-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Cards */
+.sr-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.3s;
+}
+
+.sr-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.sr-card-header h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.sr-card-brand {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #0073aa;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sr-card-body {
+    margin: 15px 0;
+}
+
+.sr-card-address {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.sr-card-dates {
+    margin: 0;
+}
+
+.sr-card-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.sr-btn-details,
+.sr-btn-apply {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.sr-btn-details {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.sr-btn-details:hover {
+    background: #e0e0e0;
+}
+
+.sr-btn-apply {
+    background: #0073aa;
+    color: white;
+}
+
+.sr-btn-apply:hover {
+    background: #005a87;
+}
+
+/* Modal */
+.sr-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.sr-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.sr-modal-content {
+    position: relative;
+    max-width: 700px;
+    margin: 50px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.sr-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+}
+
+.sr-modal-close:hover {
+    color: #000;
+}
+
+/* Form Section */
+.sr-form-section {
+    margin-top: 60px;
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    scroll-margin-top: 100px;
+}
+
+.sr-contact-form h2 {
+    margin: 0 0 15px 0;
+    font-size: 28px;
+    color: #333;
+}
+
+.sr-contact-form > p {
+    margin: 0 0 30px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.sr-form-wrapper {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Hide the standalone hidden field (not the one inside CF7/GF) */
+#sr-rotation-position {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+}
+
+/* Form Notice */
+.sr-form-notice {
+    padding: 20px;
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.sr-form-notice p {
+    margin: 5px 0;
+}
+
+.sr-form-notice strong {
+    color: #856404;
+}
+
+/* Pagination */
+.sr-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.sr-page-btn {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.sr-page-btn:hover {
+    background: #f0f0f0;
+    border-color: #0073aa;
+}
+
+.sr-page-btn.active {
+    background: #0073aa;
+    color: white;
+    border-color: #0073aa;
+}
+
+.sr-page-dots {
+    padding: 10px 5px;
+    color: #999;
+}
+
+/* Contact Form 7 Compatibility */
+.sr-form-wrapper .wpcf7 {
+    margin: 0;
+}
+
+.sr-form-wrapper .wpcf7-form p {
+    margin-bottom: 20px;
+}
+
+.sr-form-wrapper .wpcf7-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.sr-form-wrapper .wpcf7-form input[type="text"],
+.sr-form-wrapper .wpcf7-form input[type="email"],
+.sr-form-wrapper .wpcf7-form input[type="tel"],
+.sr-form-wrapper .wpcf7-form textarea,
+.sr-form-wrapper .wpcf7-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sr-form-wrapper .wpcf7-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.sr-form-wrapper .wpcf7-form input[type="submit"] {
+    background: #0073aa;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sr-form-wrapper .wpcf7-form input[type="submit"]:hover {
+    background: #005a87;
+}
+
+.sr-form-wrapper .wpcf7-response-output {
+    margin: 20px 0 0 0;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+/* Gravity Forms Compatibility */
+.sr-form-wrapper .gform_wrapper {
+    margin: 0 !important;
+}
+
+.sr-form-wrapper .gform_wrapper .gform_body {
+    padding: 0;
+}
+
+.sr-form-wrapper .gform_wrapper .gfield_label {
+    font-weight: 600;
+    color: #333;
+}
+
+.sr-form-wrapper .gform_wrapper input[type="text"],
+.sr-form-wrapper .gform_wrapper input[type="email"],
+.sr-form-wrapper .gform_wrapper input[type="tel"],
+.sr-form-wrapper .gform_wrapper textarea,
+.sr-form-wrapper .gform_wrapper select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.sr-form-wrapper .gform_wrapper textarea {
+    min-height: 120px;
+}
+
+.sr-form-wrapper .gform_wrapper .gform_button {
+    background: #0073aa;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sr-form-wrapper .gform_wrapper .gform_button:hover {
+    background: #005a87;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sr-filters {
+        flex-direction: column;
+    }
+    
+    .sr-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sr-card-footer {
+        flex-direction: column;
+    }
+    
+    .sr-form-section {
+        padding: 20px;
+    }
+    
+    .sr-form-wrapper {
+        padding: 20px;
+    }
+    
+    .sr-modal-content {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+}

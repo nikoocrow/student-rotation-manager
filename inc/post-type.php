@@ -196,14 +196,29 @@ add_action('upr_delete_expired_rotations_hook', 'upr_delete_expired_rotations');
 /**
  * Delete rotation when associated location is deleted
  */
+/**
+ * Delete rotation when associated location is deleted
+ * Using multiple hooks to ensure it works
+ */
 function upr_delete_rotation_on_location_delete($post_id) {
+    // Verificar que no sea un auto-save o revision
+    if (wp_is_post_autosave($post_id) || wp_is_post_revision($post_id)) {
+        return;
+    }
+    
+    // Verificar si es una location
     if (get_post_type($post_id) !== 'location') {
         return;
     }
     
+    // Log para debug
+    error_log('Location deleted: ' . $post_id . ', checking for associated rotations...');
+    
+    // Buscar rotations asociadas
     $args = array(
         'post_type'      => 'student_rotation',
         'posts_per_page' => -1,
+        'post_status'    => 'any',
         'meta_query'     => array(
             array(
                 'key'     => 'rotation_location',
@@ -215,11 +230,18 @@ function upr_delete_rotation_on_location_delete($post_id) {
     
     $rotations = get_posts($args);
     
+    error_log('Found ' . count($rotations) . ' rotations to delete');
+    
     foreach ($rotations as $rotation) {
-        wp_delete_post($rotation->ID, true);
+        error_log('Deleting rotation: ' . $rotation->ID);
+        wp_delete_post($rotation->ID, true); // Force delete, bypass trash
     }
 }
-add_action('before_delete_post', 'upr_delete_rotation_on_location_delete');
+
+// Usar múltiples hooks para asegurar que funcione
+add_action('before_delete_post', 'upr_delete_rotation_on_location_delete', 10, 1);
+add_action('wp_trash_post', 'upr_delete_rotation_on_location_delete', 10, 1);
+add_action('trashed_post', 'upr_delete_rotation_on_location_delete', 10, 1);
 
 /**
  * Admin notices for recruiters
@@ -239,3 +261,15 @@ function upr_recruiter_admin_notices() {
     }
 }
 add_action('admin_notices', 'upr_recruiter_admin_notices');
+
+
+
+
+
+// TEMPORAL - Para testing
+add_action('admin_init', function() {
+    if (isset($_GET['test_delete_expired']) && current_user_can('administrator')) {
+        upr_delete_expired_rotations();
+        wp_die('Expired rotations check completed. Check if old rotations were deleted.');
+    }
+});

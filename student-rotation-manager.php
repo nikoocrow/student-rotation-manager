@@ -169,3 +169,7 @@ if (function_exists('acf_add_local_field_group')) {
 // Include CSV processor
 require_once SR_PLUGIN_DIR . 'inc/csv-processor.php';
 require_once SR_PLUGIN_DIR . 'inc/csv-upload-page.php';
+// Include settings page
+require_once SR_PLUGIN_DIR . 'inc/settings-page.php';
+// Include frontend
+require_once SR_PLUGIN_DIR . 'inc/frontend/search-template.php';
